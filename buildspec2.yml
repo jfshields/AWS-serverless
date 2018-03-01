@@ -1,0 +1,12 @@
+version: 0.1
+phases:
+  install:
+    commands:
+      - cd ./frontend; npm install
+  build:
+    commands:
+      - cd ./frontend; npm run build
+  post_build:
+    commands:
+      - cd ./frontend/build; zip -r ../package.zip *
+      - aws s3 cp --recursive --acl public-read ./frontend/build/ s3://arn:aws:s3:::app-training-stack-hellobucket-sp22728bixkr/ 

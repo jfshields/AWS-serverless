@@ -4,3 +4,10 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       AccessControl: PublicRead
+        IndexDocument: index.html
+        ErrorDocument: error.html
+  HelloFunction:
+    Type: "AWS::Lambda::Function"
+    Properties: 
+      Code:
+        
