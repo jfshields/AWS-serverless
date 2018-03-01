@@ -4,19 +4,19 @@ phases:
   install:
     commands:
       - echo Installing Mocha...
+      - npm install -g mocha
   pre_build:
     commands:
       - echo Installing source NPM dependencies...
-      - cd frontend/
+      - npm install unit.js
   build:
     commands:
       - echo Build started on `date`
       - echo Compiling the Node.js code
-      - npm run build
-      - npm start
+      - mocha HelloWorld.js
   post_build:
     commands:
       - echo Build completed on `date`
 artifacts:
   files:
-    - App.js
+    - HelloWorld.js 
